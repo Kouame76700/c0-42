@@ -14,36 +14,27 @@
 void	ft_putnbr(int nb)
 {
 	int		c;
-	char	e[12];
+	char	e[11];
 
 	c = 0;
 	if (nb == -2147483648)
 		write(1, "-2147483648", 11);
-	if (nb < 0 && nb != -2147483648)
+	if (nb < 0 && nb > -2147483648)
 	{
 		nb = -nb;
 		write(1, "-", 1);
 	}
 	if (nb == 0)
 		write(1, "0", 1);
-	while (nb != 0 && nb != -2147483648)
+	while (nb != 0 && nb > -2147483648)
 	{
 		e[c] = (nb % 10) + 48;
 		nb = nb / 10;
-		
 		c++;
 	}
-	while (c > -1)
+	while (c > 0)
 	{
 		c--;
 		write(1, &e[c], 1);
 	}
-}
-
-int	main(void)
-{	
-	int	a;
-
-	a = 0;
-	ft_putnbr(a);
 }

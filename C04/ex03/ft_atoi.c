@@ -13,37 +13,25 @@
 
 int	ft_atoi(char *str)
 {
-	int i;
-	int c;
+	int	i;
+	int	tmp;
+	int	k;
 
-	c = 0;
 	i = 0;
-	while(str[i] == 32)
+	k = 0;
+	tmp = 1;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	while(str[i] == '-' || str[i] == '+'|| (str[i] >= 48 && str[i] <= 57))
+	while (str[i] == '-' || str[i] == '+')
 	{
-		while(str[i] == '-')
-		{
-				c++;
-				i++;
-		}
-		if(c % 2 != 0)
-		{
-			write(1, "-", 1);
-			c = 0;
-		}
-		if(str[i] >= 48 && str[i] <= 57)
-			write(1, &str[i], 1);
+		if (str[i] == '-')
+			tmp = -tmp;
 		i++;
 	}
-	return (0);
-}
-
-int	main(void)
-{
-	char	*a[9];
-	
-	*a = "  ----- 9841s 20";
-
-	ft_atoi(*a);
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		k = k * 10 + (str[i] - 48);
+		i++;
+	}
+	return (k * tmp);
 }

@@ -9,25 +9,14 @@
 /*   Updated: 2023/01/26 13:54:01 by tmichel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-
-	while(str[i])
-	{
+	while (str[i])
 		i++;
-	}
 	return (i);
-}
-
-int	main()
-{
-	char	d[] = "uwdhwd";
-	printf("%d", ft_strlen(d));
 }

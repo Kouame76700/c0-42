@@ -9,23 +9,16 @@
 /*   Updated: 2023/01/26 14:11:54 by tmichel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
+
 void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		write(1, &str[i], 1);
 		i++;
 	}
-}
-
-int	main()
-{
-	char	a[5] = "ijdjd";
-	ft_putstr(a);
-	return (0);
 }
